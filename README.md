@@ -8,4 +8,4 @@ npm i
 npm run start
 
 
-![alt text](http://nagger/res/nagger.png)
+![alt text](https://github.com/sanjaytkbabu/nagger/blob/main/res/nagger.png)
