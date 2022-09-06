@@ -84,10 +84,11 @@ function DiscreteSlider(props: part) {
     // <Box sx={{ width: 300 }}>
     <div className='cls_div_row'>
       <span className='cls_checkbox'>
-    <label><Checkbox />{props.text}:</label>
+    <label><Checkbox defaultChecked/>{props.text}:</label>
     </span>
     <span className='cls_slider'>
       <Slider
+        color='primary'
         aria-label="Minutes"
         defaultValue={30}
         getAriaValueText={valuetext}
@@ -96,7 +97,12 @@ function DiscreteSlider(props: part) {
         marks
         min={0}
         max={60}
-        size='medium'
+        size='small'
+        disabled={false}
+        sx={{
+          "Slider-thumb-width": "24px",
+        }}
+        
         
       />
       </span>
