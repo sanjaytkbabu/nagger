@@ -54,26 +54,52 @@ const label = "hello, hello2"
 function valuetext(value: number) {
   return `${value}°C`;
 }
-function DiscreteSlider({name}: any) {
+
+interface part {
+  text: string
+} 
+
+function IntervalTime() {
+  return (
+    // <Box sx={{ width: 300 }}>
+   
+    <div className='cls_div_row'>
+    <span className='cls_timer_span'></span>  
+    <div className='cls_timer_div'>
+    <span className='cls_timer'>1 <label className='cls_timer_label'>min</label></span>
+    <span className='cls_timer'>30 <label className='cls_timer_label'>min</label></span>
+    <span className='cls_timer'>1 <label className='cls_timer_label'>hour</label></span>
+    </div>
+      </div>
+      
+ 
+  );
+}
+
+
+
+
+function DiscreteSlider(props: part) {
   return (
     // <Box sx={{ width: 300 }}>
     <div className='cls_div_row'>
-    <label><Checkbox />{name}:</label>
-    
+      <span className='cls_checkbox'>
+    <label><Checkbox />{props.text}:</label>
+    </span>
+    <span className='cls_slider'>
       <Slider
         aria-label="Minutes"
         defaultValue={30}
         getAriaValueText={valuetext}
-        valueLabelDisplay="auto"
+        valueLabelDisplay="off"
         step={10}
         marks
-        min={10}
-        max={120}
+        min={0}
+        max={60}
         size='medium'
-        id='slider'
         
       />
-      
+      </span>
       </div>
  
   );
@@ -121,10 +147,10 @@ export default function App() {
       <Routes>
         <Route path="/" element={
           <div>
-          <Heading /> <DiscreteSlider name="Eyes"/>
-          <DiscreteSlider name="Fingers"/> <DiscreteSlider name="Arms"/> <DiscreteSlider name="Legs"/>
-          <DiscreteSlider name="Neck"/> <DiscreteSlider name="Water"/> <DiscreteSlider name="Posture"/>
-          <DiscreteSlider name="Breath"/>
+          <Heading /> <IntervalTime /> <DiscreteSlider text="Eyes"/>
+          <DiscreteSlider text="Fingers"/> <DiscreteSlider text="Arms"/> <DiscreteSlider text="Legs"/>
+          <DiscreteSlider text="Neck"/> <DiscreteSlider text="Water"/> <DiscreteSlider text="Posture"/>
+          <DiscreteSlider text="Breath"/>
         </div>
         } />
       </Routes>
