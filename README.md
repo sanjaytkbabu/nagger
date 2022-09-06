@@ -5,7 +5,7 @@
 #### A way to remind yourself to take breaks during work day
 #### To run 
 npm i\
-npm run start
+npm run start 
 
 
 ![alt text](https://github.com/sanjaytkbabu/nagger/blob/main/res/nagger.png)
