@@ -4,7 +4,7 @@
 
 # A way to remind yourself to take breaks during work life
 # To run 
-npm i
+npm i\
 npm run start
 
 
