@@ -1,8 +1,8 @@
-## Electron version of badger
+### Electron version of badger
 
-### Powered by Electron, TS and React
+#### Powered by Electron, TS and React
 
-### A way to remind yourself to take breaks during work life
+#### A way to remind yourself to take breaks during work day
 #### To run 
 npm i\
 npm run start
