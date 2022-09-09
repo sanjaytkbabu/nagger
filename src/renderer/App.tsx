@@ -78,15 +78,37 @@ function IntervalTime() {
   );
 }
 
+// var nodeConsole = require('console');
+// var myConsole = new nodeConsole.Console(process.stdout, process.stderr);
+// myConsole.log('Hello World!');
 
+// const con = require('electron').remote.getGlobal('console')
 
+// process.stdout.write('your output to command prompt console or node js ')
+
+// var log = require('electron-log');
+
+// log.info('Hello, log');
+// log.error('Damn it, an error');
+
+let checked = true;
+
+const handleChange = event => {
+  if (event.target.checked) {
+    console.log('✅ Checkbox is checked');
+    checked = true;
+  } else {
+    console.log('⛔️ Checkbox is NOT checked');
+    checked = false;
+  }
+};
 
 function DiscreteSlider(props: part) {
   return (
     // <Box sx={{ width: 300 }}>
     <div className='cls_div_row'>
       <span className='cls_checkbox'>
-    <label><BpCheckbox defaultChecked />{props.text}:</label>
+    <label><BpCheckbox defaultChecked onClick={handleChange}/>{props.text}:</label>
     </span>
     <Box className='cls_slider'>
       <IOSSlider
@@ -100,7 +122,7 @@ function DiscreteSlider(props: part) {
         min={0}
         max={60}
         size='small'
-        disabled={false} 
+        disabled={!checked} 
         
         
         
