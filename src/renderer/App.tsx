@@ -11,7 +11,7 @@ import '@fontsource/roboto/700.css';
 import Box from '@mui/joy/Box';
 import { styled } from '@mui/material/styles';
 import FormControlLabel from '@mui/material/FormControlLabel';
-
+import * as React from 'react';
 // var x = 10;
 
 // const Hello = () => {
@@ -51,7 +51,9 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 //   );
 // };
 
-const label = "hello, hello2"
+const label = "hello, hello2";
+
+let mainSwitch = true;
 
 function valuetext(value: number) {
   return `${value}°C`;
@@ -91,24 +93,40 @@ function IntervalTime() {
 // log.info('Hello, log');
 // log.error('Damn it, an error');
 
-let checked = true;
+//let checked = true;
 
-const handleChange = event => {
-  if (event.target.checked) {
-    console.log('✅ Checkbox is checked');
-    checked = true;
-  } else {
-    console.log('⛔️ Checkbox is NOT checked');
-    checked = false;
-  }
-};
+// const handleChange = event => {
+//   if (event.target.checked) {
+//     console.log('✅ Checkbox is checked');
+//     checked = true;
+//   } else {
+//     console.log('⛔️ Checkbox is NOT checked');
+//     checked = false;
+//   }
+// };
+
+// function handleChange(event: Event){
+//   if (event.target.checked) {
+//     console.log('✅ Checkbox is checked');
+    
+    
+//   } else {
+//     console.log('⛔️ Checkbox is NOT checked');
+//     checked = true;
+//   }
+  
+// }
 
 function DiscreteSlider(props: part) {
+  var [checked, setChecked] = React.useState(true);
+
+  const toggleChecked = () => setChecked(value => !value);
+  
   return (
     // <Box sx={{ width: 300 }}>
     <div className='cls_div_row'>
       <span className='cls_checkbox'>
-    <label><BpCheckbox defaultChecked onClick={handleChange}/>{props.text}:</label>
+    <label><BpCheckbox defaultChecked onClick={toggleChecked}/>{props.text}:</label>
     </span>
     <Box className='cls_slider'>
       <IOSSlider
@@ -122,7 +140,7 @@ function DiscreteSlider(props: part) {
         min={0}
         max={60}
         size='small'
-        disabled={!checked} 
+        disabled={!checked || !mainSwitch} 
         
         
         
@@ -134,13 +152,20 @@ function DiscreteSlider(props: part) {
 }
 
 const Heading = () => {
+
+ const toggleMainSwitch = () => {
+  mainSwitch = !mainSwitch;
+  console.log(mainSwitch);
+  
+ }
+
   return (
  <div>
       <div className='cls_div_title'>
     <p className='cls_title'>Reminders</p>
     
     <label className='cls_switch'> 
-    <IOSSwitch sx={{ m: 1 }} defaultChecked /></label>
+    <IOSSwitch sx={{ m: 1 }} defaultChecked onClick={toggleMainSwitch}/></label>
     </div>
     <div className='cls_p'>Decide how often Nagger should remind you to relax these:</div>
 
@@ -217,7 +242,7 @@ const IOSSlider = styled(Slider)(({ theme }) => ({
       display: 'none',
     },
     '& *': {
-      background: 'transparent',
+      background: 'transpa  t',
       color: theme.palette.mode === 'dark' ? '#fff' : '#000',
     },
   },
